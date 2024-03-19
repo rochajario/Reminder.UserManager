@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  usermanager.api:
+    image: remindme-user_manager_api
+    container_name: UserManager-API
+    build:
+      context: .
+      dockerfile: UserManager.Api/Dockerfile
+    environment:
+      - ASPNETCORE_HTTP_PORTS=8080
+    

@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  user-manager-api:
+    extends:
+      file: ./docker-compose.yml
+      service: usermanager.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings:Database=server=${DB_HOST};database=UserManagement;user=${DB_USER};password=${DB_PASSWORD}
+      - ConnectionStrings:RabbitMQ=amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@RabbitMQ:5672/
